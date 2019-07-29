@@ -1,11 +1,10 @@
 import React from 'react';
+import Search from '../cloudcasts/Search';
 
 const Home = () => {
     return (
-        <div className="row">
-            <div className="col-3 mx-auto mt-3">
-                <p>My new App</p>
-            </div>
+        <div className="row mt-5 grid-3">
+            <Search />
         </div>
     )
 }
