@@ -10,7 +10,7 @@ const Casts = () => {
   return (
     <div style={thisStyle}>
       {casts.map(tag => (
-        <CastItem key={tag.key} user={tag} />
+        <CastItem key={tag.key} cast={tag} />
       ))}
     </div>
   );

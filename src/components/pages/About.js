@@ -5,7 +5,7 @@ const About = () => {
     <Fragment>
       <h1>About This App</h1>
       <p>Mixcloud Cloudasts Explorer</p>
-      <small>Version: 1.0.0</small>
+      <small>Version: 1.0.0, developed by Alessandro Massobrio</small>
     </Fragment>
   );
 };

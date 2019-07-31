@@ -28,14 +28,14 @@ const MixcloudState = props => {
   };
 
   // Clear Users
-  const clearUsers = () => dispatch({ type: CLEAR_CASTS });
+  const clearCasts = () => dispatch({ type: CLEAR_CASTS });
 
   return (
     <mixcloudContext.Provider
       value={{
         casts: state.casts,
         searchCasts,
-        clearUsers
+        clearCasts
       }}
     >
       {props.children}

@@ -31,13 +31,13 @@ const Search = () => {
         <input
           type='submit'
           value='Search'
-          className='btn btn-light btn-block'
+          className='btn btn-dark btn-block'
         />
       </form>
       {mixcloudContext.casts.length > 0 && (
         <button
           className='btn btn-light btn-block'
-          onClick={mixcloudContext.clearUsers}
+          onClick={mixcloudContext.clearCasts}
         >
           Clear
         </button>
