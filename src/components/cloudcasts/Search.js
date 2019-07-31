@@ -1,44 +1,49 @@
 import React, { useState, useContext } from 'react';
-import mixcloudContext from '../../context/mixcloud/mixcloudContext';
+import MixcloudContext from '../../context/mixcloud/mixcloudContext';
 
-const Cloudcasts = () => {
-    const mcContext = useContext(mixcloudContext);
+const Search = () => {
+  const mixcloudContext = useContext(MixcloudContext);
 
-    const [text, setText] = useState('');
+  const [text, setText] = useState('');
 
-    const onSubmit = e => {
-      e.preventDefault();
-      if (text === '') {
-        console.log('Insert value');
-      } else {
-        mcContext.searchCloudcasts(text);
-        setText('');
-      }
-    };
-  
-    const onChange = e => setText(e.target.value);
+  const onSubmit = e => {
+    e.preventDefault();
+    if (text === '') {
+      // alertContext.setAlert('Please enter something', 'light');
+    } else {
+      mixcloudContext.searchCasts(text);
+      setText('');
+    }
+  };
 
-    return (
-        <div className="col-lg-12">
-            <form onSubmit={onSubmit} className='form'>
-              <div className="form-group">
-                  <input
-                      type='text'
-                      name='text'
-                      placeholder='Search Cloudcasts...'
-                      value={text}
-                      onChange={onChange}
-                      className='form-control'
-                  />
-                  <input
-                      type='submit'
-                      value='Search'
-                      className='btn btn-dark btn-block mt-2'
-                  />
-              </div>
-            </form>         
-        </div>
-    );
+  const onChange = e => setText(e.target.value);
+
+  return (
+    <div>
+      <form onSubmit={onSubmit} className='form'>
+        <input
+          type='text'
+          name='text'
+          placeholder='Search Cloudcasts...'
+          value={text}
+          onChange={onChange}
+        />
+        <input
+          type='submit'
+          value='Search'
+          className='btn btn-light btn-block'
+        />
+      </form>
+      {mixcloudContext.casts.length > 0 && (
+        <button
+          className='btn btn-light btn-block'
+          onClick={mixcloudContext.clearUsers}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
 };
 
-export default Cloudcasts;
+export default Search;

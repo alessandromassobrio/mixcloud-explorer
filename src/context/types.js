@@ -1,2 +1,2 @@
-export const SEARCH_CLOUDCASTS = 'SEARCH_CLOUDCASTS';
-export const GET_CLOUDCAST = 'GET_CLOUDCAST';
+export const SEARCH_CASTS = 'SEARCH_CASTS';
+export const CLEAR_CASTS = 'CLEAR_CASTS';

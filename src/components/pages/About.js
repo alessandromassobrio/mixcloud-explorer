@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const About = () => {
-    return (
-        <div className="row">
-            <div className="col-3 mx-auto mt-3">
-                <p>About this application</p>
-            </div>
-        </div>
-    )
-}
+  return (
+    <Fragment>
+      <h1>About This App</h1>
+      <p>Mixcloud Cloudasts Explorer</p>
+      <small>Version: 1.0.0</small>
+    </Fragment>
+  );
+};
 
 export default About;

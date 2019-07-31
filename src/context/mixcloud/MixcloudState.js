@@ -1,46 +1,46 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import mixcloudContext from './mixcloudContext';
-import mixcloudReducer from './mixcloudReducer';
-import { 
-    SEARCH_CLOUDCASTS
- } from '../types';
+import MixcloudReducer from './mixcloudReducer';
+import {
+  SEARCH_CASTS,
+  CLEAR_CASTS
+} from '../types';
 
- const searchType = {
-    cloudcast: 'cloudcast'
-}
- 
- const MixcloudState = props => {
-     const initialState = {
-         users: []
-     };
+const MixcloudState = props => {
+  const initialState = {
+    casts: [],
+  };
 
-     const [state, dispatch] = useReducer(mixcloudReducer, initialState);
+  const [state, dispatch] = useReducer(MixcloudReducer, initialState);
 
-     // Fetch Cloudcast Tags
-     const searchCloudcasts = async text => {
-        const rsp = await axios.get(
-            `https://api.mixcloud.com/search/?q=${text}&type=${searchType.cloudcast}`
-            );
+  // Search Casts
+  const searchCasts = async text => {
 
-        dispatch({
-            type: SEARCH_CLOUDCASTS,
-            payload: rsp.data
-        });
+    const res = await axios.get(
+      `https://api.mixcloud.com/search/?q=${text}&type=cloudcast`
+    );
 
-        console.log(rsp.data)
-     };
+    dispatch({
+      type: SEARCH_CASTS,
+      payload: res.data.data
+    });
+  };
 
-     return (
-        <mixcloudContext.Provider
-            value={{
-                users: state.users,
-                searchCloudcasts
-            }}
-        >
-            {props.children}
-        </mixcloudContext.Provider>
-     );
- };
+  // Clear Users
+  const clearUsers = () => dispatch({ type: CLEAR_CASTS });
 
- export default MixcloudState;
+  return (
+    <mixcloudContext.Provider
+      value={{
+        casts: state.casts,
+        searchCasts,
+        clearUsers
+      }}
+    >
+      {props.children}
+    </mixcloudContext.Provider>
+  );
+};
+
+export default MixcloudState;
