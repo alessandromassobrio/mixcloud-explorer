@@ -4,25 +4,26 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ icon, title }) => {
   return (
-    <nav className='navbar bg-dark'>
-      <h1>
-        <i className={icon} /> {title}
-      </h1>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-      </ul>
-    </nav>
+    <div className='navbar-fixed'>
+      <nav>
+        <div className='nav-wrapper bg-dark'>
+          <Link to='/' className='brand-logo left p-2'>
+            <i className={icon}>cloud</i> {title}
+          </Link>
+          <ul className='nav-mobile right'>
+            <li>
+              <Link to='/about'>About</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   );
 };
 
 Navbar.defaultProps = {
   title: 'Mixcloud Explorer',
-  icon: 'fab fa-mixcloud'
+  icon: 'material-icons'
 };
 
 Navbar.propTypes = {

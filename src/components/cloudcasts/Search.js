@@ -1,18 +1,23 @@
 import React, { useState, useContext } from 'react';
 import MixcloudContext from '../../context/mixcloud/mixcloudContext';
+import WarnContext from '../../context/warning/warnContext';
 
 const Search = () => {
   const mixcloudContext = useContext(MixcloudContext);
+  const warnContext = useContext(WarnContext);
 
   const [text, setText] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
     if (text === '') {
-      // alertContext.setAlert('Please enter something', 'light');
-    } else {
+      warnContext.setWarning('Please enter an artist name, a genre or a title', 'warning');
+    } 
+    else {
       mixcloudContext.searchCasts(text);
       setText('');
+      // TODO: component
+      mixcloudContext.getPaging();
     }
   };
 
@@ -20,7 +25,7 @@ const Search = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className='form'>
+      <form onSubmit={onSubmit} className='form my-3'>
         <input
           type='text'
           name='text'
