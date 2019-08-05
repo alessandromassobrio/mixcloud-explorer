@@ -6,7 +6,7 @@ const Search = () => {
   const apiContext = useContext(mixcloudContext);
   const msgContext = useContext(warnContext);
 
-  const [text, setText] = useState('');
+  const [text, setText, loading] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
@@ -38,7 +38,6 @@ const Search = () => {
           value='Search'
           className='btn btn-dark btn-block'
         />
-          <small className='center-align show-on-medium-and-down hide-on-large-only'>Mixcloud Explorer - App v. 1.0.0 - ©alessandro massobrio</small>
       </form>
       {apiContext.casts.length > 0 && (
         <button
@@ -48,6 +47,18 @@ const Search = () => {
         >
         Clear
         </button>
+      )}
+      {apiContext.loading === false && (
+        <small 
+        className='infotext center-align 
+        show-on-medium-and-down
+        hide-on-large-only
+        grey-text
+        text-lighten-0
+        mt-2'
+        >
+        Mixcloud Explorer - App v. 1.0.0 - ©alessandro massobrio
+        </small>
       )}
     </div>
   );
