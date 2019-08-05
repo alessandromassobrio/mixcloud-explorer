@@ -8,10 +8,12 @@ const Navbar = ({ icon, title }) => {
       <nav>
         <div className='nav-wrapper bg-dark'>
           <div className='brand-logo left'>
-            <i className={icon} /> {title}
+            <Link to='/'>
+              <i className={icon} /> {title}
+            </Link>
           </div>
           <ul className='nav-mobile right'>
-            <li>
+            <li className='hide-on-small-only'>
               <Link to='/'>Search</Link>
             </li>
             <li>
