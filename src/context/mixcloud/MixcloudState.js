@@ -21,15 +21,14 @@ const MixcloudState = props => {
   const [state, dispatch] = useReducer(mixcloudReducer, initialState);
   
   // Search Casts
-  const limit = 50;
+  const limit = 100;
   const offset = 0;
 
   const searchCasts = async text => {
     setLoading();
 
     const res = await axios.get(
-      `https://api.mixcloud.com/search/?limit=${limit}
-      &offset=${offset}&q=${text}&type=cloudcast`
+      `https://api.mixcloud.com/search/?limit=${limit}&offset=${offset}&q=${text}&type=cloudcast`
     );
 
     dispatch({
@@ -56,8 +55,7 @@ const MixcloudState = props => {
   const getPaging = async text => {
 
     const res = await axios.get(
-      `https://api.mixcloud.com/search/?limit=${limit}
-      &offset=${offset}&q=${text}&type=cloudcast`
+      `https://api.mixcloud.com/search/?q=${text}&type=cloudcast`
       );
 
       dispatch({
@@ -67,7 +65,7 @@ const MixcloudState = props => {
   };
 
   // Set Loading
-  const setLoading = () => dispatch({ loading: SET_LOADING});
+  const setLoading = () => dispatch({ type: SET_LOADING});
 
   // Clear Casts
   const clearCasts = () => dispatch({ type: CLEAR_CASTS });

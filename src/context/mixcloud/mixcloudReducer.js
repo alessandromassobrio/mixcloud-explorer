@@ -26,16 +26,16 @@ export default (state, action) => {
         casts: [],
         loading: false
       };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: true
-      }; 
     case GET_PAGING:
       return {
         ...state,
         pages: action.payload
-      }  
+      }
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true
+      };   
     default:
       return state;
   }
