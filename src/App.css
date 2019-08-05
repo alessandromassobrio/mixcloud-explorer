@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --dark-color:#02B875;
+  --dark-color: #1d7d74;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -28,7 +28,7 @@ a {
 }
 
 a:hover {
-  color: #666;
+  color: #ccc;
 }
 
 ul {
@@ -45,6 +45,12 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+}
+
+/* Logo */
+.brand-logo i {
+  line-height: 56px;
+  margin: 0 0 0 25px;
 }
 
 /* Text Styles*/
@@ -89,13 +95,6 @@ img {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-/* Cards */
-.card {
-  padding: 1rem;
-  border: #efefef 1px solid;
-  margin: 0.7rem 0;
 }
 
 /* List */
@@ -146,6 +145,15 @@ img {
 .m-3 {
   margin: 3rem;
 }
+.mt-1 {
+  margin: 1rem 0 0; 
+}
+.mt-2 {
+  margin: 2rem 0 0; 
+}
+.mt-3 {
+  margin: 3rem 0 0; 
+}
 .my {
   margin: 0.5rem 0;
 }
@@ -157,25 +165,6 @@ img {
 }
 .my-3 {
   margin: 3rem 0;
-}
-
-/* Grid */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
 }
 
 .btn {
@@ -334,33 +323,20 @@ table th {
 }
 
 /* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 2rem;
-  z-index: 1;
-  width: 100%;
-  opacity: 0.8;
-  margin-bottom: 1rem;
+nav {
+  background-color: #1d7d74; 
 }
 
-.navbar ul {
-  display: flex;
-}
-
-.navbar a {
-  color: #efeefe;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-}
-
-.navbar a:hover {
-  color: var(--light-color);
+.nav-wrapper {
+  width: 90%;
+  margin: auto;
 }
 
 /* Mobile Styles */
 @media (max-width: 700px) {
+  .nav-wrapper {
+    width: 100%; 
+  }
   .hide-sm {
     display: none;
   }
@@ -368,7 +344,7 @@ table th {
   .grid-2,
   .grid-3,
   .grid-4 {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 
   h5 {
@@ -380,12 +356,12 @@ table th {
   }
 
   /* Navbar */
-  .navbar {
+  .nav-wrapper {
     display: block;
     text-align: center;
   }
 
-  .navbar ul {
+  .nav-wrapper ul.nav-mobile {
     text-align: center;
     justify-content: center;
   }

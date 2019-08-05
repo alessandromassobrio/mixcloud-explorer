@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const CastItem = ({ cast: { name, url, play_count, slug, pictures: { large }, user: { username } } } ) => {
+const CastItem = ({ cast: { name, play_count, slug, pictures: { large }, user: { username } } } ) => {
 
   return (
     <div className='col xl4 l4 m6 s12'>
@@ -14,9 +15,13 @@ const CastItem = ({ cast: { name, url, play_count, slug, pictures: { large }, us
         <span>Play count: <small>{play_count}</small></span><br />
         <span><small>by {username}</small></span>
         <div>
-          <a href={`${url}`} className='btn btn-light btn-sm my-1' target='_blank' rel="noopener noreferrer">
+          <Link to=
+          {`/cast/${username}/${slug}/`}
+          className='btn btn-light btn-sm my-1'
+          style={{padding:'0 15px'}}
+          >
             More
-          </a>
+          </Link>
         </div>
       </div>
     </div>

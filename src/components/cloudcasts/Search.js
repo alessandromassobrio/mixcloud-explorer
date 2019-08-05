@@ -1,23 +1,23 @@
 import React, { useState, useContext } from 'react';
-import MixcloudContext from '../../context/mixcloud/mixcloudContext';
-import WarnContext from '../../context/warning/warnContext';
+import mixcloudContext from '../../context/mixcloud/mixcloudContext';
+import warnContext from '../../context/warning/warnContext';
 
 const Search = () => {
-  const mixcloudContext = useContext(MixcloudContext);
-  const warnContext = useContext(WarnContext);
+  const apiContext = useContext(mixcloudContext);
+  const msgContext = useContext(warnContext);
 
   const [text, setText] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
     if (text === '') {
-      warnContext.setWarning('Please enter an artist name, a genre or a title', 'warning');
-    } 
-    else {
-      mixcloudContext.searchCasts(text);
+      msgContext.setWarning('Please enter an artist name, a genre or a title', 'warning');
+    } else {
+      apiContext.searchCasts(text);
       setText('');
-      // TODO: component
-      mixcloudContext.getPaging();
+      
+      // Gets only the 'next' url
+      apiContext.getPaging(text);
     }
   };
 
@@ -25,7 +25,7 @@ const Search = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className='form my-3'>
+      <form onSubmit={onSubmit} className='form mt-3'>
         <input
           type='text'
           name='text'
@@ -39,12 +39,13 @@ const Search = () => {
           className='btn btn-dark btn-block'
         />
       </form>
-      {mixcloudContext.casts.length > 0 && (
+      {apiContext.casts.length > 0 && (
         <button
           className='btn btn-light btn-block'
-          onClick={mixcloudContext.clearCasts}
+          onClick={apiContext.clearCasts}
+          style={{padding:'0'}}
         >
-          Clear
+        Clear
         </button>
       )}
     </div>

@@ -7,10 +7,13 @@ const Navbar = ({ icon, title }) => {
     <div className='navbar-fixed'>
       <nav>
         <div className='nav-wrapper bg-dark'>
-          <Link to='/' className='brand-logo left p-2'>
-            <i className={icon}>cloud</i> {title}
-          </Link>
+          <div className='brand-logo left'>
+            <i className={icon} /> {title}
+          </div>
           <ul className='nav-mobile right'>
+            <li>
+              <Link to='/'>Search</Link>
+            </li>
             <li>
               <Link to='/about'>About</Link>
             </li>
@@ -23,7 +26,7 @@ const Navbar = ({ icon, title }) => {
 
 Navbar.defaultProps = {
   title: 'Mixcloud Explorer',
-  icon: 'material-icons'
+  icon: 'fab fa-mixcloud left'
 };
 
 Navbar.propTypes = {

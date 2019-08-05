@@ -1,7 +1,9 @@
 import {
   SEARCH_CASTS,
+  GET_CAST,
   CLEAR_CASTS,
-  SET_LOADING
+  SET_LOADING,
+  GET_PAGING
 } from '../types';
 
 export default (state, action) => {
@@ -10,17 +12,30 @@ export default (state, action) => {
       return {
         ...state,
         casts: action.payload,
+        loading: false
       };
+    case GET_CAST:
+      return {
+        ...state,
+        cast: action.payload,
+        loading: false
+      };  
     case CLEAR_CASTS:
       return {
         ...state,
         casts: [],
+        loading: false
       };
     case SET_LOADING:
       return {
         ...state,
         loading: true
       }; 
+    case GET_PAGING:
+      return {
+        ...state,
+        pages: action.payload
+      }  
     default:
       return state;
   }

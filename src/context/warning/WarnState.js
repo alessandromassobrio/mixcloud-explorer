@@ -7,14 +7,14 @@ const WarnState = props => {
     const initialState = null;
   
     const [state, dispatch] = useReducer(warnReducer, initialState);
-  
+
     const setWarning = (message, type) => {
       dispatch({
         type: SET_WARNINGS,
         payload: { message, type }
       });
 
-      setTimeout(() => dispatch({type: REMOVE_WARNINGS}), 3000);
+      setTimeout(() => dispatch({type: REMOVE_WARNINGS}), 5000);
     };
   
     return (
