@@ -2,22 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ icon, title }) => {
+const Navbar = ({ icon, title, home_i, more_i }) => {
   return (
     <div className='navbar-fixed'>
       <nav>
         <div className='nav-wrapper bg-dark'>
           <div className='brand-logo left'>
-            <Link to='/'>
-              <i className={icon} /> {title}
-            </Link>
+            <i className={icon} /> {title}
           </div>
-          <ul className='nav-mobile right'>
-            <li className='hide-on-small-only'>
-              <Link to='/'>Search</Link>
+          <ul className='right hide-on-small-only'>
+            <li>
+              <Link to='/'><i className={home_i}>home</i></Link>
             </li>
             <li>
-              <Link to='/about'>About</Link>
+              <Link to='/about'><i className={more_i}>more_vert</i></Link>
             </li>
           </ul>
         </div>
@@ -28,12 +26,16 @@ const Navbar = ({ icon, title }) => {
 
 Navbar.defaultProps = {
   title: 'Mixcloud Explorer',
-  icon: 'fab fa-mixcloud left'
+  icon: 'fab fa-mixcloud left',
+  home_i: 'material-icons',
+  more_i: 'material-icons'
 };
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired
+  icon: PropTypes.string.isRequired,
+  home_i: PropTypes.string.isRequired,
+  more_i: PropTypes.string.isRequired
 };
 
 export default Navbar;

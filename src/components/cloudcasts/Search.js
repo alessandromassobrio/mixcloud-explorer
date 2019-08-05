@@ -38,6 +38,7 @@ const Search = () => {
           value='Search'
           className='btn btn-dark btn-block'
         />
+          <small className='center-align show-on-medium-and-down hide-on-large-only'>Mixcloud Explorer - App v. 1.0.0 - ©alessandro massobrio</small>
       </form>
       {apiContext.casts.length > 0 && (
         <button

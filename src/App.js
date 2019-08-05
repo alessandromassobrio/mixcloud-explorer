@@ -14,10 +14,10 @@ import './App.css';
 const App = () => {
   return (
     <MixcloudState>
-    <WarnState>
-          <Router>
-            <div className='App'>
-              <Navbar />
+      <WarnState>
+        <Router>
+          <div className='App'>
+            <Navbar />
               <div className='container'>
                 <Warning />
                   <Switch>
@@ -27,9 +27,9 @@ const App = () => {
                     <Route component={NotFound} />
                   </Switch>
               </div>
-            </div>
-          </Router>
-        </WarnState>
+          </div>
+        </Router>
+      </WarnState>
     </MixcloudState>
   );
 };
