@@ -16,10 +16,12 @@ const Cast = ({ match }) => {
     const { 
         slug,
         name,
-        url,
         play_count,
         description,
-        user: { username, pictures: { thumbnail } = { large: 'no match' } } = { username: 'no match' } 
+        listener_count,
+        favorite_count,
+        repost_count,
+        user: { username, url, pictures: { thumbnail } = { large: 'no match' } } = { username: 'no match' }
     } = cast;
 
     if (loading) {
@@ -47,15 +49,19 @@ const Cast = ({ match }) => {
                     >
                     </iframe>
                 <div className='col xl3 l6 m3 s12 mt-3'>
-                    <img src={thumbnail} alt={username} style={{width: 'auto', borderRadius: '50%'}} />
+                    <a href={url} rel='noopener noreferrer' target='_blank'><img src={thumbnail} alt={username} style={{width: 'auto', borderRadius: '50%'}} /></a>
+                        <br />
+                    <a href={url} rel='noopener noreferrer' target='_blank'>{username}</a>
                 </div>
                 <div className='col xl9 l6 m9 s12 mt-3'>
-                    <h6>{username}</h6>
-                    <h6><a href={url} rel='noopener noreferrer' target='_blank'>{url}</a></h6>
-                    <h6>Played <b>{play_count}</b> times</h6>
+                    <h6><b>Cast Url: </b><a href={`${url}${slug}`} rel='noopener noreferrer' target='_blank'>{url}{slug}</a></h6>
+                    <h6><b>Plays: </b>{play_count}</h6>
+                    <h6><b>Likes: </b>{favorite_count}</h6>
+                    <h6><b>Listeners: </b>{listener_count}</h6>  
+                    <h6><b>Reposts: </b>{repost_count}</h6>               
                 </div>
                 </div>   
-            </div>       
+            </div>  
         </Fragment>
     );
 };

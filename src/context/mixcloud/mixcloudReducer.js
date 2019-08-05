@@ -3,7 +3,7 @@ import {
   GET_CAST,
   CLEAR_CASTS,
   SET_LOADING,
-  GET_PAGING
+  GET_PAGING,
 } from '../types';
 
 export default (state, action) => {
@@ -19,7 +19,7 @@ export default (state, action) => {
         ...state,
         cast: action.payload,
         loading: false
-      };  
+      }; 
     case CLEAR_CASTS:
       return {
         ...state,

@@ -11,7 +11,7 @@ const CastItem = ({ cast: { name, play_count, slug, pictures: { large }, user: {
         src={large}
         alt={slug}
         />
-        <h5 style={{height:'100px'}}>{name}</h5>
+        <h5 style={{height:'82px', overflow: 'hidden', padding: '0 15px'}}>{name}</h5>
         <span>Play count: <small>{play_count}</small></span><br />
         <span><small>by {username}</small></span>
         <div>

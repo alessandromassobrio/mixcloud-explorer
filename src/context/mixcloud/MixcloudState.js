@@ -6,14 +6,15 @@ import {
   SEARCH_CASTS,
   GET_CAST,
   CLEAR_CASTS,
+  GET_PAGING,
   SET_LOADING,
-  GET_PAGING
 } from '../types';
 
 const MixcloudState = props => {
   const initialState = {
     casts: [],
     cast: {},
+    user: {},
     pages: [],
     loading: false
   };
