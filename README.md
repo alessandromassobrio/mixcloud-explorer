@@ -1,12 +1,19 @@
-## Mixcloud Explorer
+# Mixcloud Explorer
 A simple app to search and fetch Cloudcasts using the Mixcloud API, React Context API and Hooks
 
-## Usage
-### `npm install`
+<a href='https://mixcloud-explorer.netlify.com'>Live Demo</a>
 
-### `npm start`
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Usage
+```
+npm install
+```
 
-### `npm run build`
+```
+npm start
+```
+Runs the app in the development mode at [http://localhost:3000](http://localhost:3000).
+
+```
+npm run build
+```
 Builds the app for production to the `build` folder
